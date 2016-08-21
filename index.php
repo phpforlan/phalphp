@@ -21,7 +21,9 @@ if( DEBUG ){
 }
 
 //引入框架核心文件
-require CORE. '/phalphp.php';
+include CORE. '/phalphp.php';
+
+//自动加载
+spl_autoload_register('\core\phalphp::load');
 
 \core\phalphp::run(); //执行run方法
-

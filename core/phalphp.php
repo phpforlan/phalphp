@@ -9,15 +9,42 @@
 
 namespace core;
 
+use core\lib\route;
+
 class phalphp
 {
+    static public $classMap = array();
 
     /**
      * run方法
      */
     static public function run()
     {
-        echo 'run';
+        $route = new \core\lib\route();
+
+    }
+
+
+    /**
+     * 自动加载函数
+     * @param $className
+     * @return bool
+     */
+    static public function load($className)
+    {
+        if( isset(self::$classMap[$className]) ){
+            return true;
+        }else{
+            // core\lib\route
+            $filePath = PHALPHP.'/'.str_replace('\\','/',$className).'.php';
+
+            if( is_file($filePath) ){
+                include $filePath;
+                self::$classMap[$className] = $filePath; //保存到$classMap中，表示已加载过
+            }else{
+                return false;
+            }
+        }
 
     }
 
