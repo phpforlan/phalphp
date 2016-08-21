@@ -20,5 +20,8 @@ if( DEBUG ){
     ini_set('display_errors', 'Off');
 }
 
+//引入框架核心文件
+require CORE. '/phalphp.php';
 
+\core\phalphp::run(); //执行run方法
 
