@@ -22,6 +22,7 @@ if( DEBUG ){
 
 //引入框架核心文件
 include CORE. '/phalphp.php';
+include CORE. '/common/function.php';
 
 //自动加载
 spl_autoload_register('\core\phalphp::load');

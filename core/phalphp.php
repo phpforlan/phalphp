@@ -20,7 +20,7 @@ class phalphp
      */
     static public function run()
     {
-        $route = new \core\lib\route();
+
 
     }
 
