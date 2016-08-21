@@ -20,7 +20,10 @@ class phalphp
      */
     static public function run()
     {
-
+        //通过路由类获取ctrl和action
+        $route = new \core\lib\route();
+        $ctrl = $route->ctrl;
+        $action = $route->action;
 
     }
 
