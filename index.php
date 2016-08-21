@@ -11,6 +11,7 @@
 define('PHALPHP', realpath('./'));
 define('APP', PHALPHP.'/app');
 define('CORE', PHALPHP.'/core');
+define('MODULE','app');
 
 define('DEBUG', true);
 

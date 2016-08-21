@@ -22,8 +22,26 @@ class phalphp
     {
         //通过路由类获取ctrl和action
         $route = new \core\lib\route();
-        $ctrl = $route->ctrl;
-        $action = $route->action;
+        $ctrl = $route->ctrl; //index
+        $action = $route->action; //index
+
+        $ctrlFile = APP.'/ctrl/'.$ctrl.'Ctrl.php';
+        if( is_file($ctrlFile) ){
+            include $ctrlFile;
+            //根据命名空间，实例化对应的控制器
+            $controller = '\\'.MODULE.'\ctrl\\'.$ctrl.'Ctrl';
+            $objCtrl = new $controller;
+
+            //判断action方法是否存在
+            if( method_exists($objCtrl,$action) ){
+                $objCtrl->$action(); //执行对应的action方法
+            }else {
+                throw  new \Exception('找不到对应的action方法');
+            }
+
+        }else{
+            throw new \Exception('找不到对应的控制器'.$ctrlFile);
+        }
 
     }
 
