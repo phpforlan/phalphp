@@ -36,11 +36,11 @@ class phalphp
             if( method_exists($objCtrl,$action) ){
                 $objCtrl->$action(); //执行对应的action方法
             }else {
-                throw  new \Exception('找不到对应的action方法');
+                throw  new \Exception('找不到对应的action方法'.$action);
             }
 
         }else{
-            throw new \Exception('找不到对应的控制器'.$ctrlFile);
+            throw new \Exception('找不到对应的控制器'.$ctrl);
         }
 
     }

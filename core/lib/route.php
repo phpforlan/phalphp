@@ -35,7 +35,7 @@ class route
                 $this->action = $pathArr[1];
                 unset($pathArr[1]);
             }else{
-                $this->action = 'index';
+                $this->action = conf::get('ACTION','route');
             }
 
             //url多余部分转换成get参数
@@ -52,8 +52,8 @@ class route
             }
 
         }else{
-            $this->ctrl = 'index';
-            $this->action = 'index';
+            $this->ctrl = conf::get('CTRL','route');
+            $this->action = conf::get('ACTION','route');
         }
 
     }
